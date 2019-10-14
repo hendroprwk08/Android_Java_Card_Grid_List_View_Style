@@ -1,10 +1,11 @@
 package com.example.hendropurwoko.myrecyclerview;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.res.Configuration;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,7 +47,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showRecyclerGrid(){
-        rvCategory.setLayoutManager(new GridLayoutManager(this, 2));
+
+        if(this.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+            rvCategory.setLayoutManager(new GridLayoutManager(this, 2));
+        }else{
+            rvCategory.setLayoutManager(new GridLayoutManager(this, 4));
+        }
+
         GridPresidentAdapter gridPresidentAdapter = new GridPresidentAdapter(this);
         gridPresidentAdapter.setListPresident(list);
         rvCategory.setAdapter(gridPresidentAdapter);

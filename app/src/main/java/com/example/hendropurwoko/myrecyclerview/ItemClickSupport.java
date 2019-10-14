@@ -1,8 +1,7 @@
 package com.example.hendropurwoko.myrecyclerview;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
-import android.widget.AdapterView;
 
 public class ItemClickSupport {
     private final RecyclerView mRecyclerView;
